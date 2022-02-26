@@ -1,0 +1,172 @@
+/* changes the background selection */
+:root {
+  --dark-theme: #33393f;
+  --turquoise: #2aefcb;
+  --light-theme: #e0eae4;
+  --highlight-pink: #e866ec;
+}
+
+::selection {
+  background-color: var(--turquoise);
+  color: var(--dark-theme);
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 1.75rem;
+  line-height: 1.5;
+  background-color: var(--dark-theme);
+  color: var(--light-theme);
+}
+
+header {
+  text-align: center;
+  padding: 2.5rem 0;
+  width: 96%;
+  margin: 0 auto;
+  padding: 2.5rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-bottom: 0.625rem;
+  color: var(--highlight-pink);
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+h1 {
+  font-size: 4rem;
+}
+
+.page-title {
+  padding: 1rem 1.2rem;
+  font-size: 4.5rem;
+}
+
+h2 {
+  font-size: 3.5rem;
+}
+
+h3 {
+  font-size: 3rem;
+}
+
+h4 {
+  font-size: 2.5rem;
+}
+
+h6 {
+  font-size: 1.5rem;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 1.5rem;
+}
+
+.card-container {
+  padding: 1.5rem;
+  flex-grow: 1;
+  flex-shrink: 0;
+  flex-basis: 100%;
+  transition: flex-basis 500ms linear;
+  margin-bottom: 2rem;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-height: 100%;
+  padding: 2rem;
+  outline: 2px dashed var(--light-theme);
+  outline-offset: -2px;
+  color: var(--highlight-pink);
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  transition: all 0.5s ease-in-out;
+}
+
+.card .card-header {
+  position: relative;
+  margin: -4rem 2rem 1rem 2rem;
+  padding: 0.5rem 1rem;
+  border: 2px solid var(--light-theme);
+  border-radius: 0.5rem;
+  background-color: var(--dark-theme);
+}
+
+/* gradient is not working */
+.card pre {
+  display: flex;
+  align-items: center;
+  white-space: pre-wrap;
+  overflow: auto;
+  tab-size: 4;
+  padding: 0.5rem 2rem;
+  color: var(--light-theme);
+  font-family: "Courier New", Courier, monospace;
+  border-radius: 0.25rem;
+  background-image: linear-gradient(
+    rgba(232, 102, 236, 0.3) 0%,
+    rgba(232, 102, 236, 0.6) 100%
+  );
+}
+
+.card:hover,
+.card:hover .card-header {
+  box-shadow: inset 0px 0px 8px var(--highlight-pink),
+    0 0 15px var(--highlight-pink);
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 1rem;
+  margin-bottom: 3rem;
+}
+
+@media screen and (min-width: 768px) {
+  .card-container {
+    flex-basis: 50%;
+    flex-grow: 0;
+    flex-shrink: 0;
+    max-width: 50%;
+  }
+
+  /* select the last child to grow to full width if it has space to grow */
+  .card-container:last-child {
+    flex-grow: 1;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  header {
+    width: 75%;
+  }
+
+  .card {
+    margin-bottom: 1rem;
+  }
+  .card-container {
+    flex-basis: 33.33%;
+    flex-grow: 0;
+    flex-shrink: 0;
+    max-width: 33.33%;
+  }
+}
